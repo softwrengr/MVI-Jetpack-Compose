@@ -1,6 +1,6 @@
 package com.features.mvijetpackcompose.intents
 
-import com.features.mvijetpackcompose.model.Animal
+import com.features.mvijetpackcompose.data.model.Animal
 
 sealed class MainAppState {
 

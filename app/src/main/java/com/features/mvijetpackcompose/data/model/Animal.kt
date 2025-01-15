@@ -1,4 +1,4 @@
-package com.features.mvijetpackcompose.model
+package com.features.mvijetpackcompose.data.model
 
 data class Animal(
     val name: String = "",

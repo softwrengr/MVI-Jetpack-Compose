@@ -1,4 +1,4 @@
-package com.features.mvijetpackcompose.ui.theme
+package com.features.mvijetpackcompose.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

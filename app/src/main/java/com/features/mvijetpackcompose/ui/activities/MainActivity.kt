@@ -1,4 +1,4 @@
-package com.features.mvijetpackcompose
+package com.features.mvijetpackcompose.ui.activities
 
 import android.os.Bundle
 import android.widget.Toast
@@ -23,33 +23,28 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.activity.viewModels
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import coil3.compose.rememberAsyncImagePainter
-import coil3.request.ImageRequest
-import com.features.mvijetpackcompose.core.networking.ApiService
-import com.features.mvijetpackcompose.core.utils.Constant
 import com.features.mvijetpackcompose.intents.MainAppIntent
 import com.features.mvijetpackcompose.intents.MainAppState
-import com.features.mvijetpackcompose.model.Animal
-import com.features.mvijetpackcompose.ui.theme.MVIAnimalsComposeTheme
-import com.features.mvijetpackcompose.ui.theme.MVIJetpackComposeTheme
+import com.features.mvijetpackcompose.data.model.Animal
+import com.features.mvijetpackcompose.theme.MVIAnimalsComposeTheme
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : FragmentActivity() {
-    private lateinit var mainViewModel: MainActivityViewModel
+    private val mainViewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainViewModel = ViewModelProvider(this, ViewModelFactory(ApiService.api))
-            .get(MainActivityViewModel::class.java)
 
         val onButtonClick: () -> Unit = {
             lifecycleScope.launch {
